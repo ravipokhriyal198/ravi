@@ -1,0 +1,9 @@
+- hosts: all
+  tasks:
+  - name: Disable Swap
+    command: swapoff -all
+	
+  - name: remove entry from fstab
+    path: '/etc/fstab'
+    regexp: '\sswap\s'
+    state: 'absent'  
